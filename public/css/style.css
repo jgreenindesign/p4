@@ -1,0 +1,11 @@
+#login-container {
+    background-color: #313e4b;
+    padding: 20px;
+    color: #c1cbcc;
+}
+
+.btn-slate {
+    color: #313e4b;
+    background-color: #C1CBCC;
+    border-color: #FDFEFF;
+}
