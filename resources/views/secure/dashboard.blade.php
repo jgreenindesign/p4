@@ -9,6 +9,19 @@
 @section('content')
 
 <div class="container">
-    <h1 class="text-center">Dashboard</h1>
+    <h1>Dashboard</h1>
+	
+	<div class="row">
+
+	    <div class="col-sm-6 col-xs-12">
+	        <h2>{Profile Name}
+	    </div>
+
+	    <div class="col-sm-6 col-xs-12">
+	        <p class="bg-info"><strong>{Profile ID}:</strong> {Sales Total}</p>
+	        <p class="bg-primary"><strong>Company Total:</strong> {Grand Total}</p>
+	    </div>
+
+	</div>
 </div>
 @stop

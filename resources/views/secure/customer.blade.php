@@ -9,31 +9,32 @@
 @section('content')
 
 <div class="container">
-    <h1>Sales</h1>
-	
+    <h1>Customer {ID}</h1>
+
+	<h2>{Customer Name}</h2>
 	<table class="table table-stripped">
+	    
 	    <thead>
 	        <tr>
-	            <th>Customer Number</th>
-	            <th>Name</th>
-	            <th>Date</th>
-	            <th>Product</th>
-	            <th>Pruchased</th>
-	            <th>Total</th>
+	            <td>Product</td>
+	            <td>Total</td>
 	        </tr>
 	    </thead>
 
 	    <tbody>
 	        <tr>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
+	            <td>{Product}</td>
+	            <td>{Total}</td>
 	        </tr>
 	    </tbody>
 
+	    <tfoot>
+	        <tr>
+	            <td></td>
+	            <td>{Grand Total}</td>
+	        </tr>
+	    </tfoot>
 	</table>
+
 </div>
 @stop

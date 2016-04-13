@@ -9,6 +9,22 @@
 @section('content')
 
 <div class="container">
-    <h1 class="text-center">Customers</h1>
+    <h1>Customers</h1>
+
+	<table class="table table-stripped">
+	    <thead>
+	        <tr>
+	            <th>Customer</th>
+	            <th>Sales</th>
+	        </tr>
+	    </thead>
+
+	    <tbody>
+	        <tr>
+	            <td></td>
+	        </tr>
+	    </tbody>
+
+	</table>
 </div>
 @stop
