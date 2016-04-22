@@ -19,7 +19,9 @@ class secureController extends Controller {
     }   
 
     public function getCustomersPage() {
-        return view('secure.customers');
+
+        $customers = \p4\Customer::all();
+        return view('secure.customers')->with('customers', $customers);
     }
 
     public function getSalesPage() {

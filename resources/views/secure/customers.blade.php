@@ -15,14 +15,25 @@
 	    <thead>
 	        <tr>
 	            <th>Customer</th>
-	            <th>Sales</th>
+	            <th>City</th>
+	            <th>State</th>
+	            <th>Zip</th>
+	            <th>Phone</th>
+	            <th>Email</th>
 	        </tr>
 	    </thead>
 
 	    <tbody>
-	        <tr>
-	            <td></td>
-	        </tr>
+	    	@foreach($customers as $customer)
+		        <tr>
+		            <td>{{ $customer->customer_name }}</td>
+	                <td>{{ $customer->customer_city }}</td>
+		            <td>{{ $customer->customer_state }}</td>
+		            <td>{{ $customer->customer_zip }}</td>
+	                <td>{{ $customer->customer_phone }}</td>
+		            <td>{{ $customer->customer_email }}</td>
+		        </tr>
+	        @endforeach
 	    </tbody>
 
 	</table>
