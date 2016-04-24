@@ -35,9 +35,12 @@ input
     color: #313e4b;
     background-color: #C1CBCC;
     border-color: #FDFEFF;
-
 }
 
+.btn-slate:hover {
+    background-color: #9d9d9d;
+    border-color: #204d74;
+}
 .btn {
     margin-top: 20px;
 }
@@ -46,6 +49,13 @@ input
     margin: 0 auto;
 }
 
+#register-button {
+    padding-right: 0 !important;
+}
+
+#register-button button {
+    float: right;
+}
 
 /* Error Classes
 *****************************/

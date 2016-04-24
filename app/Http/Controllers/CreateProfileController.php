@@ -11,7 +11,7 @@ class createProfileController extends Controller {
     * 
     */
     public function getCreateProfilePage() {
-        return view('create-profile');
+        return view('auth.register');
     }
 
 

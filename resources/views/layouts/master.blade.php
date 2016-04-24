@@ -35,14 +35,25 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                    <a class="navbar-brand" href="/">Keeper Tracker</a> 
+                    @if(Auth::check())
+                        <a class="navbar-brand" href="/dashboard">Keeper Tracker</a> 
+                    @else
+                        <a class="navbar-brand" href="/">Keeper Tracker</a> 
+                    @endif
                 </div> 
 
                 <div class="collapse navbar-collapse" id="kt-navbar-collapse-6">
                     <ul class="nav navbar-nav"> 
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/create-profile">Signup</a></li> 
+                         @if(Auth::check())
+                            <li><a href="/create-customer">Create Customer</a></li>
+                            <li><a href="/customers">Customers</a></li>
+                            <li><a href="/sales">Sales</a></li>
+                            <li><a href="/profile">Profile</a></li>
+                            <li><a href="/logout">Logout</a></li> 
+                        @else
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Signup</a></li>                            
+                        @endif
                     </ul> 
                 </div> 
             </div>

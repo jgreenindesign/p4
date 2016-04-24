@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class secureController extends Controller {
 
-    /**
-    * 
-    */
     public function getProfilePage() {
         return view('secure.profile');
     }
@@ -25,10 +22,14 @@ class secureController extends Controller {
     }
 
     public function getSalesPage() {
+
+        
         return view('secure.sales');
     }
 
     public function getDashboardPage() {
+
+
         return view('secure.dashboard');
     }
 

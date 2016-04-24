@@ -1,4 +1,4 @@
-@extends('layouts.secure')
+@extends('layouts.master')
 
 {{-- Begin title for index page --}}
 @section('title')
