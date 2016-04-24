@@ -45,6 +45,12 @@
                     <button type="submit" class="btn btn-slate col-sm-8 col-sm-offset-2">Login</button>
                 </div>
 
+                <div class="col-sm-12">
+                    <br>
+                    <p class="col-sm-5" id="nau">Not a user?</p>
+                        <a href="/register" class="btn btn-default col-sm-5">Register</a>
+                </div>              
+
             </form>
 
         </div>

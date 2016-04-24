@@ -45,16 +45,24 @@ input
     margin-top: 20px;
 }
 
+#nau {
+    margin-top: 26px;
+}
+
 .img-responsive {
     margin: 0 auto;
 }
 
-#register-button {
+.register-button {
     padding-right: 0 !important;
 }
 
-#register-button button {
-    float: right;
+.register-button p {
+    margin-top: 26px;
+}
+
+label.col-sm-4.control-label {
+    margin-top: 15px;
 }
 
 /* Error Classes

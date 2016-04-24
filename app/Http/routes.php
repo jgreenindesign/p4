@@ -18,22 +18,24 @@ Route::get('/logout', 'Auth\AuthController@logout');
 
 ## Routes for Security ##
 # Routes for Creating a new customer
-Route::get('/create-customer', 'SecureController@getCreateCustomerPage');
-Route::post('/create-customer', 'SecureController@postCreateCustomerPage');
+Route::group(['middleware' => 'auth'], function () {
 
-Route::get('/customers', 'SecureController@getCustomersPage');
-Route::post('/customers', 'SecureController@postCustomersPage');
+    Route::get('/create-customer', 'SecureController@getCreateCustomerPage');
+    Route::post('/create-customer', 'SecureController@postCreateCustomerPage');
 
-# Routes for Creating a new customer
-Route::get('/profile', 'SecureController@getProfilePage');
-Route::post('/profile', 'SecureController@postProfilePage');
+    Route::get('/customers', 'SecureController@getCustomersPage');
+    Route::post('/customers', 'SecureController@postCustomersPage');
 
-//Route::post('/customer/{}', 'CustomerController@postCustomerPage');
+    # Routes for Creating a new customer
+    Route::get('/profile', 'SecureController@getProfilePage');
+    Route::post('/profile', 'SecureController@postProfilePage');
 
-Route::get('/sales', 'SecureController@getSalesPage');
+    //Route::post('/customer/{}', 'CustomerController@postCustomerPage');
 
-Route::get('/dashboard', 'SecureController@getDashboardPage');
+    Route::get('/sales', 'SecureController@getSalesPage');
 
+    Route::get('/dashboard', 'SecureController@getDashboardPage');
+});
 
 
 Route::get('/debug', function() {

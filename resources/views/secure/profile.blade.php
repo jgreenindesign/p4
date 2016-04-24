@@ -12,8 +12,10 @@
     <h1 class="text-center">View/Update Profile</h1>
     
     <div class="row">
-        <form action="/create-profile" method="POST" id="profile-form" class="form-horizontal">
+        <form action="/profile" method="POST" id="profile-form" class="form-horizontal">
         {{ csrf_field() }}
+
+        <input type='hidden' name='id' value='{{ Auth::user()->id }}'>
         
             <div class="col-sm-4 col-xs-12">
                 <img src="/img/user-icon-placeholder.png" alt="Profile Image" class="img-responsive">
@@ -61,7 +63,7 @@
 
                     <div class="col-sm-8">
                         <input type="text" name="userPassword" id="userPassword" value="Password"
-                        class="form-control {{ $errors->has('userPassword') ? 'has-error' :'' }}">
+                        class="form-control {{ $errors->has('password') ? 'has-error' :'' }}">
                     </div>
                 </div> --}}
 
@@ -85,7 +87,7 @@
 
                 <div class="row">
                     <button type="submit" class="btn btn-slate col-sm-3 col-sm-offset-3">Update</button>
-                    <button type="submit" class="btn btn-default col-sm-3 col-sm-offset-1">Cancel</button>
+                    <a href="/dashboard" class="btn btn-default col-sm-3 col-sm-offset-1">Cancel</a>
                 </div>
 
             </div>

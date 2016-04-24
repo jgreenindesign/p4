@@ -31,14 +31,6 @@
 
             <div class='col-sm-8 col-xs-12'>
 
-                <!-- <div class='form-group row'>
-                    <label for='id' class='col-sm-4 control-label'>User ID:</label>
-
-                    <div class='col-sm-8'>
-                        <input type='text' name='id' id='id' placeholder='User ID'
-                        class='form-control {{ $errors->has('id') ? 'has-error' :'' }}'>
-                </div> -->
-
                 <div class='form-group row'>
                     <label for='name' class='col-sm-4 control-label'>Full Name:</label>
 
@@ -99,8 +91,15 @@
                     </div>
                 </div>
 
-				<div class='col-sm-12' id='register-button'>
-                    <button class='btn btn-slate col-sm-offset-2' type='submit'>Register</button>
+				<div class='col-sm-12 register-button'>
+                    <button class='btn btn-slate col-sm-offset-2 col-sm-2 col-xs-12 pull-right' type='submit'>Register</button>
+                </div>
+
+                <div class='col-sm-12 register-button'>
+                    <br>
+                    <a href='/login' class='btn btn-default col-sm-2 col-xs-6 pull-right'>Login</a>
+                    <p class='col-sm-5 col-xs-6 text-right pull-right'>Current user?</p>
+
                 </div>
 
             </div>

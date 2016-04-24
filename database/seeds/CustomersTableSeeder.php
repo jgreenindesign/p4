@@ -11,11 +11,11 @@ class CustomersTableSeeder extends Seeder
      */
 	public function run()
 	{
-	    
 	    DB::table('customers')->insert([
 	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'customer_name' => 'Dohn Joe',
+	        'user_id' => 1,
 	        'customer_city' => 'Aldera',
 	        'customer_state' => 'Alderaan',
 	        'customer_zip' => '12345',
@@ -28,6 +28,7 @@ class CustomersTableSeeder extends Seeder
 	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'customer_name' => 'Jane Doe',
+	        'user_id' => 2,
 	        'customer_city' => 'Tipoca City',
 	        'customer_state' => 'Kaminoan',
 	        'customer_zip' => '23456',
@@ -39,6 +40,7 @@ class CustomersTableSeeder extends Seeder
 	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'customer_name' => 'Alex Weir',
+	        'user_id' => 1,
 	        'customer_city' => 'Cloud City',
 	        'customer_state' => 'Bespin',
 	        'customer_zip' => '45678',
@@ -50,6 +52,7 @@ class CustomersTableSeeder extends Seeder
 	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'customer_name' => 'Angela Green',
+	        'user_id' => 2,
 			'customer_city' => 'Mos Eisley',
 	        'customer_state' => 'Tatooine',
 	        'customer_zip' => '98765',
