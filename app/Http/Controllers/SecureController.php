@@ -32,17 +32,34 @@ class secureController extends Controller {
 
 
     /*
-    * GET and POST for individual Customer Page
+    * GET and POST for creating a Customer
     */
     public function getCreateCustomerPage() {
         return view('secure.create-customer');
-    }   
+    }
+
+
+    /*
+    * GET and POST for creating a Customer
+    */
+    public function getCustomerPage($id) {
+        
+
+        $customer = \p4\Customer::find($id);
+        /*return view('secure.customer')->with('customer', $customer);*/
+
+        echo $id;
+    }
 
 
     /*
     * GET for all Customers Page
     */
     public function getCustomersPage() {
+
+        $id = \Auth::user()->id;
+        /*$customers = \p4\Customer::find($id);
+        /*$id = \p4\customer::with('user')->get();*/
 
         $customers = \p4\Customer::all();
         return view('secure.customers')->with('customers', $customers);
@@ -55,7 +72,6 @@ class secureController extends Controller {
     */
     public function getSalesPage() {
 
-        
         return view('secure.sales');
     }
 

@@ -9,7 +9,7 @@
 @section('content')
 
 <div class="container">
-    <h1>Customer {ID}</h1>
+    <h1>Customer {{ \p4\Customer->(customer_id) }}</h1>
 
 	<h2>{Customer Name}</h2>
 	<table class="table table-stripped">
