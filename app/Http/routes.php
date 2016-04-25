@@ -30,7 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', 'SecureController@getProfilePage');
     Route::post('/profile', 'SecureController@postProfilePage');
 
-    Route::get('/customer/{customer_id}', 'SecureController@getCustomerPage');
+    Route::get('/customer/{id}', 'SecureController@getCustomerPage');
+    Route::post('/customer/{id}', 'SecureController@postCustomerPage');
 
     Route::get('/sales', 'SecureController@getSalesPage');
 
@@ -45,7 +46,7 @@ Route::get('/debug', function() {
 
 	// Output the results
 	foreach ($customers as $customer) {
-	    echo $customer->customer_name.'<br>';
+	    echo $customer->name.'<br>';
 	}
 	
 });

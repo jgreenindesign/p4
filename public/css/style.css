@@ -2,6 +2,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.clearfix {
+    clear: both;
+}
+
 .container {
     margin-top: 51px;
 }
@@ -63,6 +67,17 @@ input
 
 label.col-sm-4.control-label {
     margin-top: 15px;
+}
+
+hr.styled {
+    border: 0;
+    height: 1px;
+    background: #313e4b;
+    background-image: linear-gradient(to right, #ccc, #313e4b, #ccc);
+}
+
+td button.btn-danger {
+    float: right;
 }
 
 /* Error Classes

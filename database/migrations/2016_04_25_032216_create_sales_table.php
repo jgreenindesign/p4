@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCustomersTable extends Migration
+class CreateSalesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,20 +12,17 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
-            # Primary Key for Customers Table
-            $table->increments('id');
+        Schema::create('sales', function (Blueprint $table) {
+            # Primary Key for Products Table
+            $table->increments('sales_id');
 
             # Timestamp columns for 'created_at' and 'updated_at'
             $table->timestamps();
 
             #Information about the Customer - Fields for the table
-            $table->string('name');
-            $table->string('city');
-            $table->string('state');
-            $table->string('zip');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('sales_customer');
+            $table->string('sales_product_name');
+            $table->decimal('sales_product_unit_cost');
         });
     }
 
@@ -36,6 +33,6 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('customers');
+        Schema::drop('sales');
     }
 }

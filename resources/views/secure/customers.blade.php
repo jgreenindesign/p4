@@ -26,12 +26,12 @@
 	    <tbody>
 	    	@foreach($customers as $customer)
 		        <tr>
-		            <td><a href="/customer/{{ $customer->customer_id }}">{{ $customer->customer_name }}</a></td>
-	                <td>{{ $customer->customer_city }}</td>
-		            <td>{{ $customer->customer_state }}</td>
-		            <td>{{ $customer->customer_zip }}</td>
-	                <td>{{ $customer->customer_phone }}</td>
-		            <td>{{ $customer->customer_email }}</td>
+		            <td><a href="/customer/{{ $customer->id }}">{{ $customer->name }}</a></td>
+	                <td>{{ $customer->city }}</td>
+		            <td>{{ $customer->state }}</td>
+		            <td>{{ $customer->zip }}</td>
+	                <td>{{ $customer->phone }}</td>
+		            <td>{{ $customer->email }}</td>
 		        </tr>
 	        @endforeach
 	    </tbody>

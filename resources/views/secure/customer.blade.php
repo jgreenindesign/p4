@@ -9,32 +9,100 @@
 @section('content')
 
 <div class="container">
-    <h1>Customer {{ \p4\Customer->(customer_id) }}</h1>
+    <h1>Customer: {{ $customer->name }}</h1>
+    <hr class="styled">
 
-	<h2>{Customer Name}</h2>
-	<table class="table table-stripped">
-	    
-	    <thead>
-	        <tr>
-	            <td>Product</td>
-	            <td>Total</td>
-	        </tr>
-	    </thead>
+    <div class="row">
 
-	    <tbody>
-	        <tr>
-	            <td>{Product}</td>
-	            <td>{Total}</td>
-	        </tr>
-	    </tbody>
+    	<div class="col-sm-6 col-xs-12">
+    		<h2>Customer Info</h2>
 
-	    <tfoot>
-	        <tr>
-	            <td></td>
-	            <td>{Grand Total}</td>
-	        </tr>
-	    </tfoot>
-	</table>
+    		<form action="/customer/{{ $customer->id }}" method="POST" id="profile-form" >
+    		{{ csrf_field() }}
+
+    			<input type='hidden' name='id' value='{{ $customer->id }}'>
+	            <div class="form-group row">
+	                <label for="city" class="col-sm-4 control-label">City:</label>
+
+	                <div class="col-sm-8">
+	                    <input type="text" name="city" id="city" value="{{ $customer->city }}"
+	                    class="form-control {{ $errors->has('city') ? 'has-error' :'' }}">
+	                </div>
+	            </div>
+
+
+	            <div class="form-group row">
+	                <label for="state" class="col-sm-4 control-label">State:</label>
+
+	                <div class="col-sm-8">
+	                    <input type="text" name="state" id="state" value="{{ $customer->state }}"
+	                    class="form-control {{ $errors->has('state') ? 'has-error' :'' }}">
+	                </div>
+	            </div>
+
+	            <div class="form-group row">
+	                <label for="zip" class="col-sm-4 control-label">Zip:</label>
+
+	                <div class="col-sm-8">
+	                    <input type="text" name="zip" id="zip" value="{{ $customer->zip }}"
+	                    class="form-control {{ $errors->has('zip') ? 'has-error' :'' }}">
+	                </div>
+	            </div>
+
+	            <div class="form-group row">
+	                <label for="phone" class="col-sm-4 control-label">Phone:</label>
+
+	                <div class="col-sm-8">
+	                    <input type="text" name="phone" id="phone" value="{{ $customer->phone }}"
+	                    class="form-control {{ $errors->has('phone') ? 'has-error' :'' }}">
+	                </div>
+	            </div>
+
+	            <div class="form-group row">
+	                <label for="email" class="col-sm-4 control-label">Email:</label>
+
+	                <div class="col-sm-8">
+	                    <input type="text" name="email" id="email" value="{{ $customer->email }}"
+	                    class="form-control {{ $errors->has('email') ? 'has-error' :'' }}">
+	                </div>
+	            </div>
+
+	            <div class="row">
+	                <button type="submit" class="btn btn-slate col-sm-3 col-xs-12">Update</button>
+	            </div>
+	        </form>
+
+    	</div>
+
+	    <div class="col-sm-6 col-xs-12">	
+			<h2>Sales Report</h2>
+			<table class="table table-striped table-hover">
+			    
+			    <thead id="login-container">
+			        <tr>
+			            <td>Product</td>
+			            <td>Total</td>
+			            <td></td>
+			        </tr>
+			    </thead>
+
+			    <tbody>
+			        <tr>
+			            <td>{Product}</td>
+			            <td>{Total}</td>
+			            <td><button type="button" class="btn-danger">×</button></td>
+			        </tr>
+			    </tbody>
+
+			    <tfoot>
+			        <tr>
+			            <td></td>
+			            <td>{Grand Total}</td>
+			        </tr>
+			    </tfoot>
+			</table>
+		</div>
+	</div>
 
 </div>
 @stop

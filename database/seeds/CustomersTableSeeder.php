@@ -14,50 +14,50 @@ class CustomersTableSeeder extends Seeder
 	    DB::table('customers')->insert([
 	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-	        'customer_name' => 'Dohn Joe',
+	        'name' => 'Dohn Joe',
 	        'user_id' => 1,
-	        'customer_city' => 'Aldera',
-	        'customer_state' => 'Alderaan',
-	        'customer_zip' => '12345',
-	        'customer_phone' => '555-1212',
-	        'customer_email' => 'dohnjoe@mail.com',
+	        'city' => 'Aldera',
+	        'state' => 'Alderaan',
+	        'zip' => '12345',
+	        'phone' => '555-1212',
+	        'email' => 'dohnjoe@mail.com',
 	    ]);
 
 
 	    DB::table('customers')->insert([
 	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-	        'customer_name' => 'Jane Doe',
+	        'name' => 'Jane Doe',
 	        'user_id' => 2,
-	        'customer_city' => 'Tipoca City',
-	        'customer_state' => 'Kaminoan',
-	        'customer_zip' => '23456',
-	        'customer_phone' => '555-2121',
-	        'customer_email' => 'janedoe@mail.com',
+	        'city' => 'Tipoca City',
+	        'state' => 'Kaminoan',
+	        'zip' => '23456',
+	        'phone' => '555-2121',
+	        'email' => 'janedoe@mail.com',
 	    ]);
 
 	    DB::table('customers')->insert([
 	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-	        'customer_name' => 'Alex Weir',
+	        'name' => 'Alex Weir',
 	        'user_id' => 1,
-	        'customer_city' => 'Cloud City',
-	        'customer_state' => 'Bespin',
-	        'customer_zip' => '45678',
-	        'customer_phone' => '555-2323',
-	        'customer_email' => 'alexweir@mail.com',
+	        'city' => 'Cloud City',
+	        'state' => 'Bespin',
+	        'zip' => '45678',
+	        'phone' => '555-2323',
+	        'email' => 'alexweir@mail.com',
 	    ]);
 
 	    DB::table('customers')->insert([
 	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
 	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-	        'customer_name' => 'Angela Green',
+	        'name' => 'Angela Green',
 	        'user_id' => 2,
-			'customer_city' => 'Mos Eisley',
-	        'customer_state' => 'Tatooine',
-	        'customer_zip' => '98765',
-	        'customer_phone' => '555-8989',
-	        'customer_email' => 'angelagreen@mail.com',
+			'city' => 'Mos Eisley',
+	        'state' => 'Tatooine',
+	        'zip' => '98765',
+	        'phone' => '555-8989',
+	        'email' => 'angelagreen@mail.com',
 	    ]);
 	}
 }

@@ -23,14 +23,6 @@
 
             <div class="col-sm-8 col-xs-12">
 
-                {{-- <div class="form-group row">
-                    <label for="id" class="col-sm-4 control-label">User ID:</label>
-
-                    <div class="col-sm-8">
-                        <input type="text" name="id" id="id" value="User ID"
-                        class="form-control {{ $errors->has('id') ? 'has-error' :'' }}">
-                </div> --}}
-
                 <div class="form-group row">
                     <label for="name" class="col-sm-4 control-label">Full Name:</label>
 

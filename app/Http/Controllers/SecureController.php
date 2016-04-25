@@ -39,17 +39,50 @@ class secureController extends Controller {
     }
 
 
+    public function postCreateCustomerPage(Request $request) {
+
+        $customer = new \p4\Customer();
+
+        $customer->name = $request->name;
+        $customer->user_id = \Auth::user()->id;
+        $customer->city = $request->city;
+        $customer->state = $request->state;
+        $customer->zip = $request->zip;
+        $customer->phone = $request->phone;
+        $customer->email = $request->email;
+
+        $customer->save();
+
+        return redirect('/customers');
+    }   
+
+
     /*
-    * GET and POST for creating a Customer
+    * GET and POST for individual Customer Page
     */
     public function getCustomerPage($id) {
         
 
         $customer = \p4\Customer::find($id);
-        /*return view('secure.customer')->with('customer', $customer);*/
+        return view('secure.customer')->with('customer', $customer);
 
-        echo $id;
+        /*echo $id;*/
     }
+
+    public function postCustomerPage(Request $request) {
+        
+        $customer = \p4\Customer::find($request->id);
+
+        $customer->city = $request->city;
+        $customer->state = $request->state;
+        $customer->zip = $request->zip;
+        $customer->phone = $request->phone;
+        $customer->email = $request->email;
+
+        $customer->save();
+
+        return redirect('/customers');
+    }    
 
 
     /*
@@ -58,10 +91,10 @@ class secureController extends Controller {
     public function getCustomersPage() {
 
         $id = \Auth::user()->id;
-        /*$customers = \p4\Customer::find($id);
-        /*$id = \p4\customer::with('user')->get();*/
+        $column = 'user_id';
 
-        $customers = \p4\Customer::all();
+        $customers = \p4\Customer::where($column, '=', $id)->get();
+
         return view('secure.customers')->with('customers', $customers);
     }
 
