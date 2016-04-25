@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ConnectCustomersAndProducts extends Migration
+class ConnectCustomersAndSales extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class ConnectCustomersAndProducts extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('sales', function (Blueprint $table) {
 
             # Add a new INT field called `user_id` that has to be unsigned (i.e. positive)
             $table->integer('customer_id')->unsigned();
@@ -30,8 +30,8 @@ class ConnectCustomersAndProducts extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign('products_customer_id_foreign');
+        Schema::table('sales', function (Blueprint $table) {
+            $table->dropForeign('sales_customer_id_foreign');
 
             $table->dropColumn('customer_id');
         });

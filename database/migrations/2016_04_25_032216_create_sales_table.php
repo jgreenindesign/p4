@@ -20,9 +20,8 @@ class CreateSalesTable extends Migration
             $table->timestamps();
 
             #Information about the Customer - Fields for the table
-            $table->string('sales_customer');
-            $table->string('sales_product_name');
-            $table->decimal('sales_product_unit_cost');
+            $table->string('sales_product_id');
+            $table->decimal('sales_product_total');
         });
     }
 
