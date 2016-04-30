@@ -33,9 +33,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/customer/{id}', 'SecureController@getCustomerPage');
     Route::post('/customer/{id}', 'SecureController@postCustomerPage');
 
-    Route::get('/sales', 'SecureController@getSalesPage');
-
     Route::get('/dashboard', 'SecureController@getDashboardPage');
+
+    Route::post('/sale/{id}', 'SecureController@postDeleteSale');
 });
 
 

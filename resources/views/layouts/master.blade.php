@@ -47,7 +47,6 @@
                          @if(Auth::check())
                             <li><a href="/create-customer">Create Customer</a></li>
                             <li><a href="/customers">Customers</a></li>
-                            <li><a href="/sales">Sales</a></li>
                             <li><a href="/profile">Profile</a></li>
                             <li><a href="/logout">Logout</a></li> 
                         @else

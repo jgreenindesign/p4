@@ -76,7 +76,7 @@
 
 	    <div class="col-sm-6 col-xs-12">	
 			<h2>Sales Report</h2>
-			<table class="table table-striped table-hover">
+			<table class="table table-striped table-hover text-center">
 			    
 			    <thead id="login-container">
 			        <tr>
@@ -87,11 +87,19 @@
 			    </thead>
 
 			    <tbody>
-			        <tr>
-			            <td>{Product}</td>
-			            <td>{Total}</td>
-			            <td><button type="button" class="btn-danger">×</button></td>
-			        </tr>
+					
+					@foreach($sales as $sale)
+				        <tr>
+				            <td>{{ $sale->sales_product_id }}</td>
+				            <td>{{ $sale->sales_product_total }}</td>
+				            <td>
+				            	<form action="/sale/{{ $sale->sales_id }}" method="POST" id="profile-form" >
+				            		{{ csrf_field() }}
+				            		<button type="submit" class="btn-danger">×</button>
+				            	</form>
+			            	</td>
+				        </tr>
+			        @endforeach
 			    </tbody>
 
 			    <tfoot>

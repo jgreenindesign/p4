@@ -62,11 +62,12 @@ class secureController extends Controller {
     */
     public function getCustomerPage($id) {
         
+        $customer = \p4\Customer::where('id', '=', $id)->first();
+        $sales = \p4\Sales::where('customer_id', '=', $id)->get();
 
-        $customer = \p4\Customer::find($id);
-        return view('secure.customer')->with('customer', $customer);
+        return view('secure.customer')->with('customer', $customer)->with('sales', $sales);
 
-        /*echo $id;*/
+        //echo $customer;
     }
 
     public function postCustomerPage(Request $request) {
@@ -101,11 +102,13 @@ class secureController extends Controller {
 
 
     /*
-    * GET for Sales Page
+    * POST for Sales Delete
     */
-    public function getSalesPage() {
+    public function postDeleteSale($id) {
 
-        return view('secure.sales');
+        \DB::table('Sales')->where('sales_id', '=', $id)->delete();
+
+        return view('secure.dashboard');
     }
 
 
