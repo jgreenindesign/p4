@@ -20,21 +20,26 @@ Route::get('/logout', 'Auth\AuthController@logout');
 # Routes for Creating a new customer
 Route::group(['middleware' => 'auth'], function () {
 
+    # Routes for Creating a new customer
     Route::get('/create-customer', 'SecureController@getCreateCustomerPage');
     Route::post('/create-customer', 'SecureController@postCreateCustomerPage');
 
+    # Routes for Viewing Custoemrs
     Route::get('/customers', 'SecureController@getCustomersPage');
     Route::post('/customers', 'SecureController@postCustomersPage');
 
-    # Routes for Creating a new customer
+    # Routes for Viewing and Updating Profiles
     Route::get('/profile', 'SecureController@getProfilePage');
     Route::post('/profile', 'SecureController@postProfilePage');
 
+    # Routes for Viewing Individual customers
     Route::get('/customer/{id}', 'SecureController@getCustomerPage');
     Route::post('/customer/{id}', 'SecureController@postCustomerPage');
 
+    # Routes for the dashboard
     Route::get('/dashboard', 'SecureController@getDashboardPage');
 
+    # (in development)Routes for Viewing an individual sale
     Route::post('/sale/{id}', 'SecureController@postDeleteSale');
 });
 

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class secureController extends Controller {
 
-    
     /*
     * GET and POST for profile page
     */
@@ -16,8 +15,17 @@ class secureController extends Controller {
     }
 
     public function postProfilePage(Request $request) {
-        $user = \p4\User::find($request->id);
 
+        $this->validate($request, [
+
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required'
+        ]);
+
+
+        $user = \p4\User::find($request->id);
+        
         $user->name = $request->name;
         $user->email = $request->email;
         $user->title = $request->title;
@@ -26,7 +34,7 @@ class secureController extends Controller {
 
         $user->save();
 
-        /*\Session::flash('message', 'Your change have been saved');*/
+        /*\Session::flash('message', 'Your changes have been saved');*/
         return redirect('/dashboard');
     }
 
@@ -40,6 +48,13 @@ class secureController extends Controller {
 
 
     public function postCreateCustomerPage(Request $request) {
+
+        $this->validate($request, [
+
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required'
+        ]);
 
         $customer = new \p4\Customer();
 
@@ -61,16 +76,24 @@ class secureController extends Controller {
     * GET and POST for individual Customer Page
     */
     public function getCustomerPage($id) {
-        
+
         $customer = \p4\Customer::where('id', '=', $id)->first();
         $sales = \p4\Sales::where('customer_id', '=', $id)->get();
 
         return view('secure.customer')->with('customer', $customer)->with('sales', $sales);
 
-        //echo $customer;
     }
 
     public function postCustomerPage(Request $request) {
+
+        $this->validate($request, [
+
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required'
+        ]);
         
         $customer = \p4\Customer::find($request->id);
 
@@ -106,7 +129,7 @@ class secureController extends Controller {
     */
     public function postDeleteSale($id) {
 
-        \DB::table('Sales')->where('sales_id', '=', $id)->delete();
+        \DB::table('sales')->where('sales_id', '=', $id)->delete();
 
         return view('secure.dashboard');
     }
@@ -117,8 +140,37 @@ class secureController extends Controller {
     */
     public function getDashboardPage() {
 
+        /*
+        * Get Users Totals
+        */
 
-        return view('secure.dashboard');
+        $id = \Auth::user()->id;
+        $column = 'user_id';
+
+        $customers = \p4\Customer::where($column, '=', $id)->get();
+
+        // $dashboard = \DB::table('users')
+        //     ->join('customers', 'users.id', '=', 'customers.user_id')
+        //     ->join('sales', 'customers.id', '=', 'customer_id')
+        //     ->select('sales.sales_product_total')
+        //     ->get();
+        // echo var_dump($dashboard->sales_product_total);
+
+        // foreach ($customers as $customer) {
+        //     $total = \DB::table('sales')
+        //     ->select(\DB::'sales_product_total')
+        //     ->where('customer_id', '=', $customer->id)
+        //     ->get();
+
+        //     echo $total;
+        // }
+
+        /*
+        * Get company totals
+        */
+        //$company_total = \p4\Customer::where($column, '=', $id)->get();
+
+        return view('secure.dashboard')->with('customers', $customers);
     }
 
 }

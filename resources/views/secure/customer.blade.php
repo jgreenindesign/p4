@@ -22,7 +22,7 @@
 
     			<input type='hidden' name='id' value='{{ $customer->id }}'>
 	            <div class="form-group row">
-	                <label for="city" class="col-sm-4 control-label">City:</label>
+	                <label for="city" class="col-sm-4 control-label">* City:</label>
 
 	                <div class="col-sm-8">
 	                    <input type="text" name="city" id="city" value="{{ $customer->city }}"
@@ -32,7 +32,7 @@
 
 
 	            <div class="form-group row">
-	                <label for="state" class="col-sm-4 control-label">State:</label>
+	                <label for="state" class="col-sm-4 control-label">* State:</label>
 
 	                <div class="col-sm-8">
 	                    <input type="text" name="state" id="state" value="{{ $customer->state }}"
@@ -41,7 +41,7 @@
 	            </div>
 
 	            <div class="form-group row">
-	                <label for="zip" class="col-sm-4 control-label">Zip:</label>
+	                <label for="zip" class="col-sm-4 control-label">* Zip:</label>
 
 	                <div class="col-sm-8">
 	                    <input type="text" name="zip" id="zip" value="{{ $customer->zip }}"
@@ -50,7 +50,7 @@
 	            </div>
 
 	            <div class="form-group row">
-	                <label for="phone" class="col-sm-4 control-label">Phone:</label>
+	                <label for="phone" class="col-sm-4 control-label">* Phone:</label>
 
 	                <div class="col-sm-8">
 	                    <input type="text" name="phone" id="phone" value="{{ $customer->phone }}"
@@ -59,15 +59,21 @@
 	            </div>
 
 	            <div class="form-group row">
-	                <label for="email" class="col-sm-4 control-label">Email:</label>
+	                <label for="email" class="col-sm-4 control-label">* Email:</label>
 
 	                <div class="col-sm-8">
-	                    <input type="text" name="email" id="email" value="{{ $customer->email }}"
+	                    <input type="email" name="email" id="email" value="{{ $customer->email }}"
 	                    class="form-control {{ $errors->has('email') ? 'has-error' :'' }}">
 	                </div>
 	            </div>
 
 	            <div class="row">
+
+	                @if ($errors->any())
+	                	<p class="bs-callout-danger">Please correct the errors above.</p>
+	            	@endif
+	                
+	                <p class="bs-callout-danger">* All customer information is required.</p>
 	                <button type="submit" class="btn btn-slate col-sm-3 col-xs-12">Update</button>
 	            </div>
 	        </form>

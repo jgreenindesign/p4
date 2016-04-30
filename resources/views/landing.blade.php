@@ -7,7 +7,15 @@
 
 {{-- Begin content for index page --}}
 @section('content')
-        
-    <h1 class="text-center">Keeper Tracker</h1>
+
+	<h1 class="text-center">Keeper Tracker</h1>
+
+    {{-- <div class="jumbotron">
+		<div class="container-responsive">
+
+
+
+		</div>
+	</div> --}}
 
 @stop

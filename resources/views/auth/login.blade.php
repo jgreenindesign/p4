@@ -12,11 +12,13 @@
         
             <h1 class="text-center">Keeper Tracker</h1>
             @if(count($errors) > 0)
-                    <ul class='errors'>
-                    @foreach ($errors->all() as $error)
-                        <li><span class='fa fa-exclamation-circle'></span> {{ $error }}</li>
-                    @endforeach
-                </ul>
+
+            <div class="col-sm-10 col-sm-offset-2 errors">
+                @foreach ($errors->all() as $error)
+                    <p><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{ $error }}</p>
+                @endforeach
+            </div>
+
             @endif
 
             <form method='POST' action='/login' id="login">

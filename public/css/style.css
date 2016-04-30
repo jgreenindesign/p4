@@ -57,7 +57,7 @@ input
     margin: 0 auto;
 }
 
-.register-button {
+.register-button, .col-sm-offset-2 {
     padding-right: 0 !important;
 }
 
@@ -80,6 +80,19 @@ td button.btn-danger {
     float: right;
 }
 
+p.bg-info, p.bg-primary {
+    padding: 10px 15px;
+}
+
+.bs-callout-danger {
+    margin-top: 15px;
+    padding-left: 5px;
+    border: 1px solid #ce4844;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+
 /* Error Classes
 *****************************/
 .bg-danger {
@@ -90,4 +103,8 @@ td button.btn-danger {
     border-color: #843534;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+}
+
+.errors p {
+    text-align: left;
 }

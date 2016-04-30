@@ -59,5 +59,28 @@ class CustomersTableSeeder extends Seeder
 	        'phone' => '555-8989',
 	        'email' => 'angelagreen@mail.com',
 	    ]);
+
+	    DB::table('customers')->insert([
+	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+	        'name' => 'Poe Dameron',
+	        'user_id' => 1,
+	        'city' => 'Massassi',
+	        'state' => 'Yavin',
+	        'zip' => '54321',
+	        'phone' => '555-8989',
+	        'email' => 'pdameron@mail.com',
+	    ]);
+	    DB::table('customers')->insert([
+	        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+	        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+	        'name' => 'Tom Bombadil',
+	        'user_id' => 2,
+			'city' => 'Longboat Key',
+	        'state' => 'Florida',
+	        'zip' => '45612',
+	        'phone' => '555-5454',
+	        'email' => 'tomb@mail.com',
+	    ]);	    
 	}
 }

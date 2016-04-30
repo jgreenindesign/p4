@@ -24,7 +24,7 @@
             <div class="col-sm-8 col-xs-12">
 
                 <div class="form-group row">
-                    <label for="name" class="col-sm-4 control-label">Full Name:</label>
+                    <label for="name" class="col-sm-4 control-label">* Full Name:</label>
 
                     <div class="col-sm-8">
                         <input type="text" name="name" id="name" value="{{ Auth::user()->name }}"
@@ -33,10 +33,10 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="email" class="col-sm-4 control-label">Email:</label>
+                    <label for="email" class="col-sm-4 control-label">* Email:</label>
 
                     <div class="col-sm-8">
-                        <input type="text" name="email" id="email" value="{{ Auth::user()->email }}"
+                        <input type="email" name="email" id="email" value="{{ Auth::user()->email }}"
                         class="form-control {{ $errors->has('email') ? 'has-error' :'' }}">
                     </div>
                 </div>                
@@ -46,38 +46,34 @@
 
                     <div class="col-sm-8">
                         <input type="text" name="title" id="title" value="{{ Auth::user()->title }}"
-                        class="form-control {{ $errors->has('title') ? 'has-error' :'' }}">
+                        class="form-control">
                     </div>
                 </div>                
-
-                {{-- <div class="form-group row">
-                    <label for="userPassword" class="col-sm-4 control-label">Password:</label>
-
-                    <div class="col-sm-8">
-                        <input type="text" name="userPassword" id="userPassword" value="Password"
-                        class="form-control {{ $errors->has('password') ? 'has-error' :'' }}">
-                    </div>
-                </div> --}}
 
                 <div class="form-group row">
                     <label for="territory" class="col-sm-4 control-label">Territory:</label>
 
                     <div class="col-sm-8">
                         <input type="text" name="territory" id="territory" value="{{ Auth::user()->territory }}"
-                        class="form-control {{ $errors->has('territory') ? 'has-error' :'' }}">
+                        class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="phone" class="col-sm-4 control-label">Phone #:</label>
+                    <label for="phone" class="col-sm-4 control-label">* Phone #:</label>
 
                     <div class="col-sm-8">
-                        <input type="text" name="phone" id="phone" value="{{ Auth::user()->phone }}"
+                        <input type="tel" name="phone" id="phone" value="{{ Auth::user()->phone }}"
                         class="form-control {{ $errors->has('phone') ? 'has-error' :'' }}">
                     </div>
                 </div>
 
                 <div class="row">
+                    @if ($errors->has('name') || $errors->has('email') || $errors->has('phone'))
+                        <p class="bs-callout-danger col-sm-offset-3">Please correct the errors above.</p>
+                    @endif
+                    
+                    <p class="bs-callout-danger col-sm-offset-3">* Denotes a required field</p>                
                     <button type="submit" class="btn btn-slate col-sm-3 col-sm-offset-3">Update</button>
                     <a href="/dashboard" class="btn btn-default col-sm-3 col-sm-offset-1">Cancel</a>
                 </div>

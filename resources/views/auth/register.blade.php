@@ -13,14 +13,6 @@
     
     <div class='row'>
 
-	    @if(count($errors) > 0)
-	        <ul class='errors'>
-	            @foreach ($errors->all() as $error)
-	                <li><span class='fa fa-exclamation-circle'></span> {{ $error }}</li>
-	            @endforeach
-	        </ul>
-	    @endif
-
         <form action='/register' method='POST' id='profile-form' class='form-horizontal'>
         {{ csrf_field() }}
         
@@ -44,7 +36,7 @@
                     <label for='email' class='col-sm-4 control-label'>Email:</label>
 
                     <div class='col-sm-8'>
-                        <input type='text' name='email' id='email' placeholder='you@company.com'
+                        <input type='email' name='email' id='email' placeholder='you@company.com'
                         class='form-control {{ $errors->has('email') ? 'has-error' :'' }}'>
                     </div>
                 </div>
@@ -89,6 +81,14 @@
                         <input type='text' name='phone' id='phone' placeholder='555-1212'
                         class='form-control {{ $errors->has('phone') ? 'has-error' :'' }}'>
                     </div>
+                </div>
+
+                <div class="col-sm-10 col-sm-offset-2">
+                    @if ($errors->has('name') || $errors->has('email') || $errors->has('phone'))
+                        <p class="bs-callout-danger">Please correct the errors above.</p>
+                    @endif
+                    
+                    <p class="bs-callout-danger">* Denotes a required field</p>
                 </div>
 
 				<div class='col-sm-12 register-button'>
