@@ -34,7 +34,7 @@ class secureController extends Controller {
 
         $user->save();
 
-        /*\Session::flash('message', 'Your changes have been saved');*/
+        \Session::flash('message', 'Your profile has been updated');
         return redirect('/dashboard');
     }
 
@@ -68,6 +68,8 @@ class secureController extends Controller {
 
         $customer->save();
 
+        \Session::flash('message', 'Customer '.$customer->name.' has been created');
+
         return redirect('/customers');
     }   
 
@@ -80,7 +82,18 @@ class secureController extends Controller {
         $customer = \p4\Customer::where('id', '=', $id)->first();
         $sales = \p4\Sales::where('customer_id', '=', $id)->get();
 
-        return view('secure.customer')->with('customer', $customer)->with('sales', $sales);
+        $customer_total = '';
+
+        foreach ($sales as $sale) {
+            $customer_total += $sale->sales_product_total;
+        }
+
+
+
+        return view('secure.customer')
+        ->with('customer', $customer)
+        ->with('customer_total', $customer_total)
+        ->with('sales', $sales);
 
     }
 
@@ -105,7 +118,9 @@ class secureController extends Controller {
 
         $customer->save();
 
-        return redirect('/customers');
+        \Session::flash('message', 'Customer '.$customer->name.' has been updated');
+
+        return redirect('/customer/'.$customer->id);
     }    
 
 
@@ -131,7 +146,14 @@ class secureController extends Controller {
 
         \DB::table('sales')->where('sales_id', '=', $id)->delete();
 
-        return view('secure.dashboard');
+        $id = \Auth::user()->id;
+        $column = 'user_id';
+
+        $customers = \p4\Customer::where($column, '=', $id)->get();
+
+        \Session::flash('message', 'The sale has been deleted');
+
+        return view('secure.customers')->with('customers', $customers);
     }
 
 
@@ -140,37 +162,25 @@ class secureController extends Controller {
     */
     public function getDashboardPage() {
 
-        /*
-        * Get Users Totals
-        */
+        $id = \Auth::user()->id; //logged in user
+        $company_total = ''; //company sales total
+        $customer_count = ''; //number of customers based on user
+ 
+        $customer_count = \p4\Customer::where('user_id', '=', $id)
+        ->select('id')
+        ->count();
 
-        $id = \Auth::user()->id;
-        $column = 'user_id';
+        $sales = \p4\Sales::with('customer')
+        ->select('sales_product_total')
+        ->get();
 
-        $customers = \p4\Customer::where($column, '=', $id)->get();
+        foreach ($sales as $sale) {
+            $company_total += $sale->sales_product_total;
+        }
 
-        // $dashboard = \DB::table('users')
-        //     ->join('customers', 'users.id', '=', 'customers.user_id')
-        //     ->join('sales', 'customers.id', '=', 'customer_id')
-        //     ->select('sales.sales_product_total')
-        //     ->get();
-        // echo var_dump($dashboard->sales_product_total);
-
-        // foreach ($customers as $customer) {
-        //     $total = \DB::table('sales')
-        //     ->select(\DB::'sales_product_total')
-        //     ->where('customer_id', '=', $customer->id)
-        //     ->get();
-
-        //     echo $total;
-        // }
-
-        /*
-        * Get company totals
-        */
-        //$company_total = \p4\Customer::where($column, '=', $id)->get();
-
-        return view('secure.dashboard')->with('customers', $customers);
+        return view('secure.dashboard')
+        ->with('customer_count', $customer_count)
+        ->with('company_total', $company_total);
     }
 
 }

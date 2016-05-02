@@ -12,4 +12,8 @@ class Customer extends Model
     	return $this->belongsTo('\p4\User');
     }
 
+    public function sales() {
+    	return $this->hasMany('\p4\Sales');
+    }
+
 }

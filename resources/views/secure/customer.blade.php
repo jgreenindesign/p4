@@ -110,8 +110,8 @@
 
 			    <tfoot>
 			        <tr>
-			            <td></td>
-			            <td>{Grand Total}</td>
+			            <td>Customer Total:</td>
+			            <td>{{ $customer_total }}</td>
 			        </tr>
 			    </tfoot>
 			</table>
