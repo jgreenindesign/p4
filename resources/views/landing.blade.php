@@ -9,13 +9,10 @@
 @section('content')
 
 	<h1 class="text-center">Keeper Tracker</h1>
-
-    {{-- <div class="jumbotron">
-		<div class="container-responsive">
-
-
-
-		</div>
-	</div> --}}
+	
+	<div id="image-container">
+		<img src="/img/keeper-tracker-header.jpg" alt="Keeper Tracker" class="img-responsive">
+		<h2 class="text-center"><span>Keep up-to-date with your customers, sales, and so much more</span></h2>
+	</div>
 
 @stop
