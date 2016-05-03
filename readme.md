@@ -13,13 +13,13 @@
 ## Additional Info to TA
 * I am submitting this on 5/2, due to other obligation I will be unavailable for the remainder of the semester. There were more features I would like to have added, however I ran out of time.
 * CRUD
-    ** Create: Create a new user account, create a new customer account.
-    ** Read: User Profile, Customer Profile, Customers Page, Dashboard, etc.
-    ** Update: Update user account information, update customer account information
-    ** Delete: Sales for a customer.
+    - Create: Create a new user account, create a new customer account.
+    - Read: User Profile, Customer Profile, Customers Page, Dashboard, etc.
+    - Update: Update user account information, update customer account information
+    - Delete: Sales for a customer.
 * Tables
-    ** Customers
-    ** Sales
+    - Customers
+    - Sales
 
 ### Misc
 * 
